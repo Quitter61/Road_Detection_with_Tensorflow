@@ -7,6 +7,7 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 import skimage.io as io
 
+'''
 #定义图片读取路径
 filename_pairs = [
 ('/home/damon/Second_road_image/road_image_dataset/input_003.png', '/home/damon/Second_road_image/road_image_dataset/input_003_GT.png'),
@@ -14,7 +15,13 @@ filename_pairs = [
 ('/home/damon/Second_road_image/road_image_dataset/input_007.png', '/home/damon/Second_road_image/road_image_dataset/input_007_GT.png'),
 ('/home/damon/Second_road_image/road_image_dataset/input_011.png', '/home/damon/Second_road_image/road_image_dataset/input_011_GT.png'),
 ]
+'''
 
+def get_imlist(path):
+    return [os.path.join(path,f) for f in os.listdir(path) if f.endswith('.jpg')]
+
+file_img = get_imlist(r'')
+file_gt = get_imlist(r'')
 
 
 def _bytes_feature(value):
@@ -30,7 +37,7 @@ write = tf.python_io.TFRecordWriter(tfrecords_filename)
 
 original_images = []
 
-for img_path, gt_img_path in filename_pairs:
+for img_path, gt_img_path in zip(file_img, file_gt):
     img = np.array(Image.open(img_path))
     gt_img = np.array(Image.open(gt_img_path))
 
