@@ -1,13 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
-'''
-@author: chao_zhang
-@license: (C) Copyright 2016-2017, AccuRad AI.
-@contact: chao_zhang@accurad.com
-@software: AI
-@file: test_16s_show_img.py
-@time: 2017/8/8 15:06
-'''
+
 
 from __future__ import division
 
